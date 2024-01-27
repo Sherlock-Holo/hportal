@@ -22,6 +22,7 @@ mod proto {
     tonic::include_proto!("hportal");
 }
 
+/// hportal is a simple reverse proxy
 #[derive(Debug, Parser)]
 struct Args {
     /// config path
