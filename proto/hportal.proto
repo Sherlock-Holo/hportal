@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package hportal;
+
+message ListenRequest {
+  string client_name = 1;
+  string token = 2;
+  repeated ListenAddrAndPort listen_addr_and_ports = 3;
+}
+
+message ListenAddrAndPort {
+  string name = 1;
+  string remote_addr = 2;
+  uint32 remote_port = 3;
+}
+
+message ConnectRequest {
+  string name = 1;
+  uint64 id = 2;
+}
+
+message ConnectResult {
+  uint64 id = 1;
+  optional string fail_reason = 2;
+}
+
+message ConnectResultOrData {
+  oneof body {
+    ConnectResult result = 1;
+    bytes data = 2;
+  }
+}
+
+message ConnectData {
+  bytes data = 1;
+}
+
+service Hportal {
+  rpc Listen(ListenRequest) returns (stream ConnectRequest);
+
+  rpc Establish(stream ConnectResultOrData) returns (stream ConnectData);
+}

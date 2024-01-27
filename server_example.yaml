@@ -1,0 +1,6 @@
+mode: server
+server:
+  server_addr: 0.0.0.0:9666
+  peers:
+    - name: example
+      secret: AiPrLrRCLa3Q-b7LHn5zPGGfi6PjZZFhuul6PWyj9S0

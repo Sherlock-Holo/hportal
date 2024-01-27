@@ -1,2 +1,2 @@
-# hprotal
-Holo protal
+# hportal
+Holo portal

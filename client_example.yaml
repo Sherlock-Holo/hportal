@@ -1,0 +1,9 @@
+mode: client
+client:
+  name: example
+  secret: AiPrLrRCLa3Q-b7LHn5zPGGfi6PjZZFhuul6PWyj9S0
+  server_addr: http://localhost:9666
+  forwards:
+    - name: web
+      local_addr: 127.0.0.1:8000
+      remote_addr: 0.0.0.0:8001
