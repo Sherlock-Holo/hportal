@@ -10,6 +10,7 @@ use async_trait::async_trait;
 use bytes::BytesMut;
 use dashmap::{DashMap, DashSet};
 use defer::defer;
+use derive_more::Debug;
 use flume::r#async::RecvStream;
 use flume::Sender;
 use futures_util::future::{abortable, AbortHandle};
@@ -33,6 +34,7 @@ use crate::proto::{
 pub struct Peer {
     auth: Auth,
     listen_addrs: HashMap<String, SocketAddr>,
+    #[debug(skip)]
     abort_handle: Option<AbortHandle>,
 }
 
@@ -67,6 +69,7 @@ pub struct Server {
 struct ServerInner {
     peers: DashMap<String, Peer>,
     listened_addrs: DashSet<SocketAddr>,
+    #[debug(skip)]
     wait_establish_tcp_stream: DashMap<u64, TcpStream>,
 }
 

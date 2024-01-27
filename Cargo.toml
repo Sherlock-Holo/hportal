@@ -12,6 +12,7 @@ bytes = "1"
 clap = { version = "4", features = ["derive"] }
 dashmap = "5"
 defer = "0.2"
+derive_more = { version = "1.0.0-beta.6", features = ["debug"] }
 flume = "0.11"
 futures-util = "0.3"
 tokio = { version = "1", features = ["rt-multi-thread", "time"] }

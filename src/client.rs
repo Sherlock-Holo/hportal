@@ -4,6 +4,7 @@ use std::time::Duration;
 
 use anyhow::Context;
 use bytes::BytesMut;
+use derive_more::Debug;
 use futures_util::{stream, Stream, StreamExt, TryStreamExt};
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
@@ -35,8 +36,10 @@ impl ListenAddr {
 pub struct Client {
     name: String,
     auth: Auth,
+    #[debug(skip)]
     rpc_client: HportalClient<Channel>,
     listen_addrs: HashMap<String, ListenAddr>,
+    #[debug(skip)]
     connect_request_stream: Streaming<ConnectRequest>,
 }
 
