@@ -12,6 +12,6 @@ fn main() {
     let proto_dir = proto_path.parent().unwrap();
 
     builder
-        .compile_with_config(prost_config, &[proto_path], &[proto_dir])
+        .compile_protos_with_config(prost_config, &[proto_path], &[proto_dir])
         .unwrap();
 }
